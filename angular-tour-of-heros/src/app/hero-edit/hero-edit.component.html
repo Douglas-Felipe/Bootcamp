@@ -1,29 +1,39 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}}</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+  <mat-card class="hero-edit-content">
+    <mat-card-title>{{hero.name | uppercase}} | id: {{hero.id}} </mat-card-title>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero name:</mat-label>
+      <input matInput placeholder="Hero name" [(ngModel)]="hero.name">
+    </mat-form-field>
+    
+    <br>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero Description:</mat-label>
+      <input matInput placeholder="Hero Description" [(ngModel)]="hero.description">
+    </mat-form-field>
+    
+    <br>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero image url:</mat-label>
+      <input matInput placeholder="Hero Image" [(ngModel)]="hero.imageUrl">
+    </mat-form-field>
+    
+    <br>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Universe</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let universe of heroUniverses" [value]="universe">
+          {{universe | uppercase}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <br>
+    <button mat-stroked-button (click)="goBack()">go back</button>
+    <button mat-flat-button color="primary" mat-stroked-button (click)="save()">save</button>
+  </mat-card>
   </div>
-  <br>
-  <div>
-    <label for="hero-description">Hero Description: </label>
-    <input id="hero-description" [(ngModel)]="hero.description" placeholder="Hero Description"/>
-  </div>
-  <br>
-  <div>
-    <label for="hero-image-url">Hero image url: </label>
-    <input id="hero-image-url" [(ngModel)]="hero.imageUrl" placeholder="Hero Image"/>
-  </div>
-  <br>
-  <div>
-    <select [(ngModel)]="hero.universe">
-      <option *ngFor="let universe of heroUniverses" [value]="universe">
-        {{universe | uppercase}}
-      </option>
-    </select>
-  </div>
-  <br>
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
-</div>

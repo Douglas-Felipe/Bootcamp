@@ -1,8 +1,12 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
-      routerLink="/detail/{{hero.id}}">
-      {{hero.name}}
+  routerLink="/detail/{{hero.id}}">
+    <mat-card>
+      <img class="img-hero" src="{{hero.imageUrl}}">
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>{{hero.description}}</mat-card-subtitle>
+    </mat-card>
   </a>
 </div>
 

@@ -1,4 +1,4 @@
-import { HeroUniverse } from './../hero';
+import { HeroUniverse } from '../hero';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -14,7 +14,7 @@ import { HeroService } from '../hero.service';
 export class HeroEditComponent implements OnInit {
 
   hero: Hero;
-  heroUniverse: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL]
+  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL]
 
   constructor(
     private route: ActivatedRoute,
