@@ -10,4 +10,8 @@ mat-form-field{
 /* button css */
 .mat-flat-button{
     background-color: #5841bd;
+    margin: 10px;
+}
+.mat-stroked-button{
+    margin: 10px;
 }
