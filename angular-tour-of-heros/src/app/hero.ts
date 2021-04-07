@@ -10,3 +10,8 @@ export interface Hero{
     universe: HeroUniverse;
     description: string;
 }
+
+export interface HeroGetResponse {
+    cursor: string;
+    heroes: Array<Hero>;
+}

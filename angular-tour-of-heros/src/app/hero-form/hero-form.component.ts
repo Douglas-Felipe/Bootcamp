@@ -25,7 +25,7 @@ export class HeroFormComponent {
   ) { }
 
   onGoBack(): void {
-    this.goBack.emit;
+    this.goBack.emit();
   }
 
   save(): void {
