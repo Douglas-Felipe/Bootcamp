@@ -1,0 +1,16 @@
+.hero-edit-content{
+    text-align: center;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+/* button css */
+.mat-flat-button{
+    background-color: #5841bd;
+    margin: 10px;
+}
+.mat-stroked-button{
+    margin: 10px;
+}

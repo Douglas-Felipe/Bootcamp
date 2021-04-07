@@ -1,12 +1,13 @@
 <h2>My Heroes</h2>
 
-<div>
+<!-- <div>
   <label id="new-hero">Hero name: </label>
   <input for="new-hero" #heroName />
   <button class="add-button" (click)="add(heroName.value); heroName.value=''">
     Add hero
   </button>
-</div>
+</div> -->
+
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
@@ -17,3 +18,7 @@
       (click)="delete(hero)">x</button>
   </li>
 </ul>
+
+<button mat-fab color="accent" aria-label="Add new hero" [routerLink]="['/new']">
+  <mat-icon>add</mat-icon>
+</button>
