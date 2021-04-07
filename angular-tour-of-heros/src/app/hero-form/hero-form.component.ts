@@ -18,7 +18,7 @@ export class HeroFormComponent {
   //O Output goBack ira ser emitido se o usuário decidir voltar para a pagina anterior
   @Output() goBack: EventEmitter<void> = new EventEmitter<void>();
 
-  heroUniverse: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL];
+  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL, HeroUniverse.ANIME];
 
   constructor(
     private heroService: HeroService

@@ -13,7 +13,7 @@ import { HeroService } from '../hero.service';
 export class HeroEditComponent implements OnInit {
 
   hero: Hero;
-  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL]
+  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL, HeroUniverse.ANIME]
 
   constructor(
     private route: ActivatedRoute,

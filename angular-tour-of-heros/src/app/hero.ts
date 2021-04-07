@@ -1,6 +1,7 @@
 export enum HeroUniverse {
     DC = 'dc',
-    MARVEL = 'marvel'
+    MARVEL = 'marvel',
+    ANIME = 'anime'
 }
 
 export interface Hero{
