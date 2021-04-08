@@ -30,12 +30,12 @@ export class HeroService {
       );
   }
 
-  getTopHeroes(): Observable<HeroGetResponse> { 
+  getTopHeroes(): Observable<HeroGetResponse> {
     return this.http.get<HeroGetResponse>(`${this.heroesUrl}top-heroes`)
     .pipe(
       tap(_ => this.log('fetched heroes')),
       catchError(this.handleError<HeroGetResponse>('getHeros', {heroes: [], cursor: undefined}))
-    )
+    );
   }
 
   /** GET hero by id. Return `undefined` when id not found */
@@ -79,14 +79,12 @@ export class HeroService {
 
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
-    const heroParams = {hero: hero};
+    const heroParams = { hero: hero };
     return this.http.post<Hero>(`${this.heroesUrl}heroes`, heroParams, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
       );
     }
-
-  
 
   /** DELETE: delete the hero from the server */
   deleteHero(id: string): Observable<Hero> {
@@ -102,7 +100,7 @@ export class HeroService {
   updateHero(hero: Hero): Observable<any> {
     const heroParams = {hero: hero};
     return this.http.post(`${this.heroesUrl}hero/${hero.id}`, heroParams, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      tap(_ => this.log( `updated hero id=${hero.id}` )),
       catchError(this.handleError<any>('updateHero'))
     );
   }

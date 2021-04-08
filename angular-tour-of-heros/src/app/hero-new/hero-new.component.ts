@@ -10,7 +10,6 @@ import { Hero } from '../hero';
   styleUrls: ['./hero-new.component.css']
 })
 export class HeroNewComponent implements OnInit {
-
   // No componente hero-new iremos iniciar o heroi com um json em branco
   hero: Hero = {} as Hero;
 

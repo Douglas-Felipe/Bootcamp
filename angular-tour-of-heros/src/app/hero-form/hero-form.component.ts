@@ -10,12 +10,11 @@ import { Hero, HeroUniverse } from '../hero';
   styleUrls: ['./hero-form.component.css']
 })
 export class HeroFormComponent {
-
-  //O input hero ira receber o heroi para a criação ou atualização, de acordo com a tela e a presença do atributo id
+  // O input hero ira receber o heroi para a criação ou atualização, de acordo com a tela e a presença do atributo id
   @Input() hero:Hero;
-  //O Output heroSaved ira ser emitido depois que o heroi for atualizado ou criado
+  // O Output heroSaved ira ser emitido depois que o heroi for atualizado ou criado
   @Output() heroSaved: EventEmitter<void> = new EventEmitter<void>();
-  //O Output goBack ira ser emitido se o usuário decidir voltar para a pagina anterior
+  // O Output goBack ira ser emitido se o usuário decidir voltar para a pagina anterior
   @Output() goBack: EventEmitter<void> = new EventEmitter<void>();
 
   heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL];
