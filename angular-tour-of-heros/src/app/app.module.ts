@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -21,6 +21,7 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroNewComponent } from './hero-new/hero-new.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -33,8 +34,9 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     MatSelectModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
-
+    MatIconModule,
+    ReactiveFormsModule,
+    InfiniteScrollModule
   ],
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     HeroNewComponent,
     HeroFormComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  providers: [ FormBuilder ]
 })
 export class AppModule { }

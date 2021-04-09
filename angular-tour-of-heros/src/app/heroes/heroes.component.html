@@ -1,23 +1,21 @@
 <h2>My Heroes</h2>
 
-<!-- <div>
-  <label id="new-hero">Hero name: </label>
-  <input for="new-hero" #heroName />
-  <button class="add-button" (click)="add(heroName.value); heroName.value=''">
-    Add hero
-  </button>
-</div> -->
-
-
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <!-- <span class="badge">{{hero.id}}</span> -->{{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-  </li>
-</ul>
+<div class="search-results" infiniteScroll (scrolled)="onScrollDown()">
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <mat-card>
+      <a routerLink="/detail/{{hero.id}}">
+          <img class="img-hero" [src]="hero.imageUrl">
+          <div>
+            <mat-card-title>{{hero.name}}</mat-card-title>
+            <mat-card-subtitle>{{hero.description}}</mat-card-subtitle>
+          </div>
+      </a>
+        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+      </mat-card>
+    </li>
+  </ul>
+</div>
 
 <button mat-fab color="accent" aria-label="Add new hero" [routerLink]="['/new']">
   <mat-icon>add</mat-icon>

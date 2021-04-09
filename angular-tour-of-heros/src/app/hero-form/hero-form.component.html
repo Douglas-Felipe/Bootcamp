@@ -1,31 +1,33 @@
 <div *ngIf="hero">
+  <form [formGroup]="formGroup" (ngSubmit)="save()">
+
     <mat-card class="hero-edit-content">
       <mat-card-title>{{hero.name | uppercase}} | id: {{hero.id}} </mat-card-title>
       
       <mat-form-field class="example-full-width">
         <mat-label>Hero name:</mat-label>
-        <input matInput placeholder="Hero name" [(ngModel)]="hero.name">
+        <input matInput placeholder="Hero name" formControlName="name">
       </mat-form-field>
       
       <br>
       
       <mat-form-field class="example-full-width">
         <mat-label>Hero Description:</mat-label>
-        <input matInput placeholder="Hero Description" [(ngModel)]="hero.description">
+        <input matInput placeholder="Hero Description" formControlName="description">
       </mat-form-field>
       
       <br>
       
       <mat-form-field class="example-full-width">
         <mat-label>Hero image url:</mat-label>
-        <input matInput placeholder="Hero Image" [(ngModel)]="hero.imageUrl">
+        <input matInput placeholder="Hero Image" formControlName="imageUrl">
       </mat-form-field>
       
       <br>
       
       <mat-form-field >
         <mat-label>Universe</mat-label>
-        <mat-select>
+        <mat-select formControlName="universe">
           <mat-option *ngFor="let universe of heroUniverses" [value]="universe">
             {{universe | uppercase}}
           </mat-option>
@@ -33,7 +35,8 @@
       </mat-form-field>
       
       <br>
-      <button mat-stroked-button (click)="onGoBack()">go back</button>
-      <button mat-flat-button color="primary" mat-stroked-button (click)="save()">save</button>
+      <button mat-stroked-button type="button" (click)="onGoBack()">go back</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="!formGroup.valid">save</button>
     </mat-card>
+  </form>
 </div>

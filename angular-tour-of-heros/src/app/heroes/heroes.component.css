@@ -3,7 +3,7 @@
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 100%;
 }
 
 input {
@@ -23,27 +23,6 @@ input {
   left: .1em;
 }
 
-.heroes a {
-  color: #333;
-  text-decoration: none;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
-  display: block;
-  width: 100%;
-}
-
-.heroes a:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
-}
-
-.heroes a:active {
-  background-color: #525252;
-  color: #fafafa;
-}
 
 .heroes .badge {
   display: inline-block;
@@ -61,22 +40,11 @@ input {
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
-
-.add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 2rem;
-}
-
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
-}
-
 button.delete {
+  border: none;
   position: absolute;
-  left: 210px;
-  top: 5px;
+  right: 10px;
+  top: 15.75px;
   background-color: white;
   color:  #525252;
   font-size: 1.1rem;
@@ -84,6 +52,50 @@ button.delete {
 }
 
 button.delete:hover {
-  background-color: #525252;
-  color: white;
+  box-shadow: rgb(124, 124, 124) 2px 2px 2px 2px;
+  color: black;
+}
+
+.mat-fab{
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
+
+.mat-card{
+  height: 63px;
+  padding: 0px;
+  margin-bottom: 15px;
+}
+
+.mat-card a{
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  display: flex;
+}
+
+.img-hero{
+  margin-left: 3px;
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+}
+
+mat-card-title{
+  margin: 2px 10px;
+}
+
+mat-card-subtitle{
+  margin-left: 10px;
+  margin-top: 3px !important;
+  font-size: 15pt ;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.mat-card a div{
+  width: 80%;
 }

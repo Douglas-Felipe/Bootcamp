@@ -22,8 +22,8 @@ export class HeroService {
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
-  getHeroes(): Observable<HeroGetResponse> {
-    return this.http.get<HeroGetResponse>(`${this.heroesUrl}heroes`)
+  getHeroes(cursor?: string): Observable<HeroGetResponse> {
+    return this.http.get<HeroGetResponse>(`${this.heroesUrl}heroes?cursor=${cursor || ''}`)
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<HeroGetResponse>('getHeroes', {heroes: [], cursor: undefined}))
@@ -131,4 +131,6 @@ export class HeroService {
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
+
+
 }
