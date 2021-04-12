@@ -1,0 +1,19 @@
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
+    <mat-toolbar color="primary">
+        <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">X</button>
+    </mat-toolbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <!-- Botão para abrir e fechar o menu -->
+        <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>PetStore</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
