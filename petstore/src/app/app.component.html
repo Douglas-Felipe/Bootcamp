@@ -2,7 +2,9 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="over">
     <mat-toolbar color="primary">
-        <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">X</button>
+        <button mat-icon-button aria-label="Menu" class="header-button" (click)="sidenav.toggle()">
+          <mat-icon>close</mat-icon>
+        </button>
     </mat-toolbar>
   </mat-sidenav>
   <mat-sidenav-content>
