@@ -1,0 +1,44 @@
+.img-category{
+    max-width: 100%;
+    border-radius: 50%;
+    border: 1px solid silver;
+}
+
+.container h2{
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 22px;
+    font: 500 20px/32px Roboto,Helvetica Neue,sans-serif;
+    letter-spacing: normal;
+    margin: 0 0 16px;
+}
+
+@media only screen and (max-width: 540px) {
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .container{
+        width: 900px;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+    .container{
+        width: 900px;
+    }
+}
