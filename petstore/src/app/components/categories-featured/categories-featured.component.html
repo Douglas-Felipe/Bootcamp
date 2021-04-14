@@ -3,9 +3,9 @@
     <div class="grid">
         <div class="categories-container row">
             <div class="row">
-              <div class="col-4 col-sm-4 col-md-2 col-lg-2" *ngFor="let category of categories">
+              <div class="col-4 col-sm-4 col-md-2 col-lg-2 category-item" *ngFor="let category of categories">
                   <img class="img-category" [src]="category.url">
-                  {{category.name}}
+                  <span class="category-name">{{category.name}}</span>
               </div>
             </div>
         </div>
