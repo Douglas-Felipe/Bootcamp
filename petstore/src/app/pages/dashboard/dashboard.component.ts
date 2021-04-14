@@ -1,3 +1,5 @@
+import { Product } from './../../interfaces/product';
+import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -8,10 +10,16 @@ import { FormControl } from '@angular/forms';
 })
 export class DashboardComponent implements OnInit {
 
+  products: Product[];
 
-  constructor() { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit(): void {
+    this.getProductsHighlights();
+  }
+
+  getProductsHighlights(): void {
+    this.productsService.getProductsHighlights().subscribe(products => this.products = products)
   }
 
 }

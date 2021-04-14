@@ -1,0 +1,33 @@
+<mat-card>
+    <img mat-card-image [src]="product.images" [alt]="product.name">
+
+    <mat-card-title>{{product.name}}</mat-card-title>
+
+    <mat-card-content>
+        <div class="star">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+                <mat-icon>
+                    <ng-container *ngIf="product.rating_stars >= star">
+                        star
+                    </ng-container>
+                    <ng-container *ngIf="(product.rating_stars < star) && (product.rating_stars > star - 1)">
+                        star_half
+                    </ng-container>
+                    <ng-container *ngIf="(product.rating_stars < star) && (product.rating_stars < star - .5)">
+                        star_border
+                    </ng-container>
+                </mat-icon>
+            </ng-container>
+        </div>
+
+        <div class="container-value">
+            <del class="value">{{product.value | currency: "BRL"}}</del>
+            <div class="promotional-value"><b>{{product.promotional_value | currency: "BRL"}}</b></div>
+        </div>
+
+        <div class="installment" *ngIf="product.installment_available">
+            {{product.installment_count}} x {{ (product.promotional_value / product.installment_count) | currency: "BRL" }}
+        </div>
+    </mat-card-content>
+    
+</mat-card>

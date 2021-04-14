@@ -5,19 +5,22 @@ import { HttpClientModule } from '@angular/common/http'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CategoriesFeaturedComponent } from './components/categories-featured/categories-featured.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CategoriesFeaturedComponent
+    CategoriesFeaturedComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { CategoriesFeaturedComponent } from './components/categories-featured/ca
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,9 @@
-import { MockComponents } from 'ng-mocks';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ProductsService } from './../../services/products.service';
+import { ProductItemComponent } from './../../components/product-item/product-item.component';
+import { MockComponents } from 'ng-mocks';
+import { ProductsServiceMock } from '../../mocks/products-mocks'
 
 import { DashboardComponent } from './dashboard.component';
 import { CategoriesFeaturedComponent } from '../../components/categories-featured/categories-featured.component';
@@ -12,9 +16,14 @@ describe('DashboardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ 
         DashboardComponent,
-        MockComponents(
-          CategoriesFeaturedComponent
-        ) 
+        MockComponents(CategoriesFeaturedComponent),
+        MockComponents(ProductItemComponent), 
+      ],
+      providers: [
+        {
+          provide: ProductsService,
+          useClass: ProductsServiceMock
+        }
       ]
     })
     .compileComponents();

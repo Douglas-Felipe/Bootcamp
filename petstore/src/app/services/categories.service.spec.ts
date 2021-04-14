@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 
 import { Categories } from './../interfaces/categories';
 import { CategoriesService } from './categories.service';
-import { HttpClient } from '@angular/common/http';
 
 describe('CategoriesService', () => {
   let service: CategoriesService;
