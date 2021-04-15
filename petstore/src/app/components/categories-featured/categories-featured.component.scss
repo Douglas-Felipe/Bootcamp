@@ -15,8 +15,10 @@
     letter-spacing: normal;
     margin: 0 0 16px;
 }
-
-@media only screen and (max-width: 540px) {
+.container {
+    cursor: pointer;
+}
+    @media only screen and (max-width: 540px) {
     .container{
         width: 100%;
     }

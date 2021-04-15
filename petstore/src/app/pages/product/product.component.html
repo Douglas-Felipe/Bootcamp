@@ -1,0 +1,73 @@
+<section class="container grid" *ngIf="product">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+            <swiper class="swiper-container">
+                <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide ng-star-inserted swiper-slide-active">
+                            <img [src]="product.images" [alt]="product.name">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active">
+
+                        </span>
+                    </div>
+
+                </div>
+                
+            </swiper>
+            
+        </div>
+
+        <div class="product-details col-12 col-sm-12 col-md-5 col-lg-5">
+            <mat-title>{{ product.name }}</mat-title>
+            <div class="star">
+                <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+                    <mat-icon>
+                        <ng-container *ngIf="product.rating_stars >= star">
+                            star
+                        </ng-container>
+                        <ng-container *ngIf="(product.rating_stars < star) && (product.rating_stars > star - 1)">
+                            star_half
+                        </ng-container>
+                        <ng-container *ngIf="(product.rating_stars < star) && (product.rating_stars < star - .5)">
+                            star_border
+                        </ng-container>
+                    </mat-icon>
+                </ng-container>
+                <span class="rating-count">({{ product.rating_count}})</span>
+            </div>
+            <mat-card-subtitle class="description">
+                {{ product.description }}
+            </mat-card-subtitle>
+        </div>
+
+        <div class="product-prices col-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="price-container ng-star-inserted">
+                <div class="value-without-promotional col-md-12">
+                    <small><del>{{product.value | currency: "BRL"}}</del></small>
+                </div>
+                <div class="price promotional-value col-6 col-sm-6 col-md-6 col-lg-6">
+                    {{product.promotional_value | currency: "BRL"}}
+                </div>
+                <div class="subscribers col-6 col-sm-6 col-md-6 col-lg-6">
+                    Para assinantes
+                </div>
+            </div>
+            <div class="price-container">
+                <div class="price col-6 col-sm-6 col-md-6 col-lg-6">
+                    {{product.value | currency: "BRL"}}
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 installment ng-star-inserted" *ngIf="product.installment_count">
+                    ou até {{product.installment_count}} x {{ (product.promotional_value / product.installment_count) | currency: "BRL" }}
+                </div>
+                <button>ADICIONAR AO CARRINHO</button>
+                <button style="background-color: #f24783;">ASSINAR PRODUTO</button>
+            </div>
+        </div>
+
+
+    </div>
+</section>

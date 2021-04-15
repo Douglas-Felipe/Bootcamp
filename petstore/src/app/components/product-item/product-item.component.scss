@@ -1,6 +1,9 @@
 mat-icon{
     color: #ffbf3f;
 }
+mat-card {
+    cursor: pointer;
+}
 
 .mat-card-image{
     max-height: calc(60% + 32px);
