@@ -15,7 +15,7 @@ img {
 }
 
 
-mat-title {
+.product-name {
     font: 500 15px Roboto,Helvetica Neue,sans-serif;
     letter-spacing: normal;
     margin-bottom: 16px;
@@ -146,4 +146,24 @@ button {
     max-width: 1140px;
     }
 
+}
+
+.swiper-container {
+    height: 270px;
+    max-width: 230px;
+    .swiper-slide {
+        img {
+            max-width: 100%;
+        }
+    }
+}
+.breadcrumbs {
+    cursor: pointer;
+    margin-bottom: 15px;
+    color: #777;
+}
+
+.breadcrumbs-container {
+    margin-left: 5px;
+    margin-top: 5px;
 }

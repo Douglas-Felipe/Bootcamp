@@ -1,10 +1,11 @@
+import { RouterLink } from '@angular/router';
 import { AnimalType, Product } from './../../interfaces/product';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductItemComponent } from './product-item.component';
 import { MatIcon } from '@angular/material/icon';
-import { MockComponents } from 'ng-mocks';
-import { MatCard, MatCardContent, MatCardImage, MatCardTitle } from '@angular/material/card';
+import { MockComponents, MockDirective } from 'ng-mocks';
+import { MatCardContent, MatCardImage, MatCardTitle } from '@angular/material/card';
 
 const product: Product = {
   name: "Product",
@@ -38,11 +39,11 @@ describe('ProductItemComponent', () => {
         ProductItemComponent,
         MockComponents(
           MatIcon,
-          MatCard,
           MatCardContent,
           MatCardTitle,
           MatCardImage
-          )
+          ),
+        MockDirective( RouterLink )
       ]
     })
     .compileComponents();

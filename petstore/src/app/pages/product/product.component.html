@@ -1,28 +1,29 @@
+<div class="breadcrumbs-container" *ngIf="product">
+    <span class="breadcrumbs" [routerLink]="['/']">dashboard > </span>
+    <span class="breadcrumbs" [routerLink]="[]">{{ product.animal_type }} > </span> 
+    <span class="breadcrumbs" [routerLink]="[]">{{ product.category }} > </span>
+    <span class="breadcrumbs" [routerLink]="[]">{{ product.subcategory }} > </span>
+</div>
 <section class="container grid" *ngIf="product">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-            <swiper class="swiper-container">
-                <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
-
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide ng-star-inserted swiper-slide-active">
-                            <img [src]="product.images" [alt]="product.name">
+            <swiper [config]="swiperConfig" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <ng-container *ngFor="let image of product.images">
+                        <div class="swiper-slide">
+                            <img [src]="image">
                         </div>
-                    </div>
-                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
-                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active">
-
-                        </span>
-                    </div>
-
+                    </ng-container>
                 </div>
-                
+                <!-- Pagination -->
+                <div class="swiper-pagination">
+                </div>
             </swiper>
             
         </div>
 
         <div class="product-details col-12 col-sm-12 col-md-5 col-lg-5">
-            <mat-title>{{ product.name }}</mat-title>
+            <div class="product-name">{{ product.name }}</div>
             <div class="star">
                 <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
                     <mat-icon>

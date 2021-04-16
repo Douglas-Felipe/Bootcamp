@@ -10,7 +10,7 @@ import { Product } from './../../interfaces/product';
 export class ProductItemComponent implements OnInit {
 
   @Input() product: Product;
-  
+
 
   constructor() { }
 
