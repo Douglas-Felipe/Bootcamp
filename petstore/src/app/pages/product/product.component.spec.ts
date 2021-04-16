@@ -62,4 +62,11 @@ describe('ProductComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should the title and priece of a product', () => {
+    const html = fixture.nativeElement;
+    expect(html.getElementsByClassName('product-name').item(0).innerHTML).toContain('Product');
+
+    expect(html.getElementsByClassName('value-without-promotional').item(0).innerHTML).toContain('204.9');
+  });
+
 });
