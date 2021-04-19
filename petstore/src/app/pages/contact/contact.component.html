@@ -1,0 +1,30 @@
+<div class="container grid">
+    <div class="col-12">
+        <form class="contact-form" [formGroup]="formGroup">
+            <h1 class="title">Contato</h1>
+
+            <mat-form-field class="nome" appearance="fill">
+                <mat-label>Nome:</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field> 
+
+            <mat-form-field class="email" appearance="fill">
+                <mat-label>Emai</mat-label>
+                <mat-error *ngIf="formGroup.get('email').hasError('required')">O email é obrigatório</mat-error>
+                <mat-error *ngIf="formGroup.get('email').hasError('email') || formGroup.get('email').hasError('pattern') ">Email inválido</mat-error>
+                <input matInput formControlName="email">
+            </mat-form-field> 
+ 
+            <mat-form-field class="phone" appearance="fill">
+                <mat-label>Telefone:</mat-label>
+                <input matInput formControlName="phone">
+            </mat-form-field> 
+
+            <mat-form-field class="message" appearance="fill">
+                <mat-label>Mensagem:</mat-label>
+                <input matInput formControlName="message">
+            </mat-form-field> 
+            <button mat-button>Enviar</button>
+        </form>
+    </div>
+</div>

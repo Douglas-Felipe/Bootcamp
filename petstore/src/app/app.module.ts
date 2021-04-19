@@ -7,6 +7,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
@@ -17,6 +20,8 @@ import { CategoriesFeaturedComponent } from './components/categories-featured/ca
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductComponent } from './pages/product/product.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,18 +31,24 @@ import { FooterComponent } from './components/footer/footer.component';
     CategoriesFeaturedComponent,
     ProductItemComponent,
     ProductComponent,
-    FooterComponent
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
 
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
 
     NgxUsefulSwiperModule
   ],
