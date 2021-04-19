@@ -16,6 +16,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CategoriesFeaturedComponent } from './components/categories-featured/categories-featured.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductComponent } from './pages/product/product.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProductComponent } from './pages/product/product.component';
     DashboardComponent,
     CategoriesFeaturedComponent,
     ProductItemComponent,
-    ProductComponent
+    ProductComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockComponents } from 'ng-mocks';
 import { AppComponent } from './app.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
           MatSidenav,
           MatSidenavContent,
           MatSidenavContainer,
-          MatIcon
+          MatIcon,
+          FooterComponent
         )
       ],
     }).compileComponents();

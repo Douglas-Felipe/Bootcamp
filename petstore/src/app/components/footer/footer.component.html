@@ -1,0 +1,31 @@
+<mat-card class="mat-card mat-focus-indicator footer-card ng-star-inserted">
+  <div class="container grid">
+    <img class="footer-image" src="https://img.freepik.com/vetores-gratis/petshop-com-gato-e-cachorro_9645-763.jpg" alt="logo petsop">      
+    <div class="row">
+      <div class="col-8 col-sm-6 col-md-8 col-lg-9">
+        <span class="material-icons">home</span>
+        <i class="address">{{ parameters.address }} - {{ parameters.address_complement }}</i>
+        <i>{{ parameters.zip_code }} {{ parameters.city }} - {{ parameters.state }}</i>
+        <br>
+        <ng-container  *ngFor="let phone of parameters.phones">
+          <img *ngIf="phone.type == 'whatsapp'" class="icon-cell" src="https://imobzi.storage.googleapis.com/image/redes-sociais/whatsapp_gray.svg">
+          <span *ngIf="phone.type == 'Principal'" class="material-icons icon-cell"> phone</span>
+          <i class="fone-number"> {{phone.country_code}} {{phone.number}} </i>
+        </ng-container>
+      </div>
+      
+      <div class="col-4 col-sm-6 col-md-4 col-lg-3">
+        <p>Siga-nos nas Redes Sociais</p>
+        <ng-container *ngFor="let social of parameters.social_networks">
+          <a class="social-link" href="{{socialUrls[social.name]}}{{social.account}}"  target="_blank" title="{{social.name}}">
+             <img class="image-icon" src="{{imagesUrl[social.name]}}">
+          </a>
+      </ng-container>
+      </div>
+    </div>
+  </div>
+      
+  <div class="trademark">
+    <p>@{{ parameters.trademark }}</p>
+  </div>
+</mat-card>

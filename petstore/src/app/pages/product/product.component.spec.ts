@@ -2,7 +2,6 @@ import { MatIcon } from '@angular/material/icon';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 
-import { from } from 'rxjs';
 
 import { MockComponents } from 'ng-mocks';
 import { ProductsServiceMock } from './../../mocks/products-mocks';

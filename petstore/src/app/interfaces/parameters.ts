@@ -11,7 +11,7 @@ export interface Parameters {
     phones: Array<phones>;
 }
 
-export interface social_networks{
+export interface social_networks {
     account: string;
     name: string;
 }
