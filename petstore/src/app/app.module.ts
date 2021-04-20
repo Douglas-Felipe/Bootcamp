@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
@@ -49,6 +50,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
 
     NgxUsefulSwiperModule
   ],

@@ -3,8 +3,11 @@
         <form class="contact-form" [formGroup]="formGroup">
             <h1 class="title">Contato</h1>
 
-            <mat-form-field class="nome" appearance="fill">
+            <mat-form-field class="name" appearance="fill">
                 <mat-label>Nome:</mat-label>
+                <mat-error *ngIf="formGroup.get('name').hasError('required')">O nome é obrigatório</mat-error>
+                <mat-error *ngIf="formGroup.get('name').hasError('maxlength')">O nome tem que ser menor que 40 caracteres</mat-error>
+                <mat-error *ngIf="formGroup.get('name').hasError('minlength')">O nome tem que ser maior que 3 caracteres</mat-error>
                 <input matInput formControlName="name">
             </mat-form-field> 
 
@@ -17,14 +20,19 @@
  
             <mat-form-field class="phone" appearance="fill">
                 <mat-label>Telefone:</mat-label>
+                <mat-error *ngIf="formGroup.get('phone').hasError('required')">O telefone é obrigatório</mat-error>
+                <mat-error *ngIf="formGroup.get('phone').hasError('pattern')">Telefone inválido</mat-error>
                 <input matInput formControlName="phone">
             </mat-form-field> 
 
             <mat-form-field class="message" appearance="fill">
                 <mat-label>Mensagem:</mat-label>
+                <mat-error *ngIf="formGroup.get('message').hasError('required')">A mensagem é obrigatória</mat-error>
                 <input matInput formControlName="message">
             </mat-form-field> 
-            <button mat-button>Enviar</button>
+
+              
+            <button mat-button (click)="sendForm()">Enviar</button>
         </form>
     </div>
 </div>
