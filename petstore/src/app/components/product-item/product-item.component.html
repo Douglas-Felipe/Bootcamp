@@ -21,11 +21,12 @@
         </div>
 
         <div class="container-value">
-            <del class="value">{{product.value | currency: "BRL"}}</del>
-            <div class="promotional-value"><b>{{product.promotional_value | currency: "BRL"}}</b></div>
+            <del class="value" *ngIf="product.promotional_value > 0">{{product.value | currency: "BRL"}}</del>
+            <div class="value" *ngIf="!(product.promotional_value > 0)">{{product.value | currency: "BRL"}}</div>
+            <div class="promotional-value" *ngIf="product.promotional_value > 0"><b>{{product.promotional_value | currency: "BRL"}}</b></div>
         </div>
 
-        <div class="installment" *ngIf="product.installment_available">
+        <div class="installment" *ngIf="product.installment_count > 0 && product.promotional_value > 0">
             {{product.installment_count}} x {{ (product.promotional_value / product.installment_count) | currency: "BRL" }}
         </div>
     </mat-card-content>

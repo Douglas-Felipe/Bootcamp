@@ -1,7 +1,6 @@
 import { Product } from './../../interfaces/product';
 import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productsService: ProductsService) { }
+  constructor( private productsService: ProductsService ) { }
 
   ngOnInit(): void {
     this.getProductsHighlights();

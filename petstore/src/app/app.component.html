@@ -7,7 +7,7 @@
         </button>
     </mat-toolbar>
     <div *ngFor="let menu of menus" class="container grid menu">
-      <button class="menu-button" mat-button (click)="showPage(menu.router, sidenav)">{{ menu.name }}</button>
+      <button class="menu-button col-12" mat-button (click)="showPage(menu.router, sidenav)">{{ menu.name }}</button>
     </div>
   </mat-sidenav>
   <mat-sidenav-content>

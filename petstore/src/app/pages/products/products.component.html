@@ -1,0 +1,14 @@
+<!-- Sessão referente aos produtos -->
+<section class="container grid products" *ngIf="products">
+    <div class="row">
+        <!-- Coluna referente ao titulo -->
+        <div class="col-12">
+            <h2 class="title">Lista de produtos</h2>
+        </div>
+        <!-- Loop dos produtos  -->
+        <div class="col-12 col-sm-6 xol-md-4 col-lg-3" *ngFor="let product of products.products">
+            <!-- Chamando o componente app-product-item  -->
+            <app-product-item [product]="product"></app-product-item>
+        </div>
+    </div>
+</section>
