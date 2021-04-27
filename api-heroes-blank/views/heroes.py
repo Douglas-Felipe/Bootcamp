@@ -3,7 +3,6 @@ from flask import request
 
 from models.hero import Hero
 from modules.hero import HeroModule
-from modules.main import MainModule
 
 
 class HeroesHandler(Resource):
@@ -57,9 +56,8 @@ class HeroHandler(Resource):
     def get(self, hero_id):
         """Get hero"""
         try:
-            hero = MainModule.get_firestore_db().collection(
-                self._collection_name).document(hero_id).get()
-            if hero.exists:
+            hero = Hero.get_hero(hero_id)
+            if hero:
                 return hero.to_dict()
             return {'message': 'Hero not found'}, 404
 
@@ -72,9 +70,8 @@ class HeroHandler(Resource):
     def post(self, hero_id):
         """Update a hero"""
         try:
-            hero = MainModule.get_firestore_db().collection(
-                self._collection_name).document(hero_id).get()
-            if hero.exists:
+            hero = Hero.get_hero(hero_id)
+            if hero:
                 return hero.to_dict()
             return {'message': 'Hero not found'}, 404
         except Exception as error:
@@ -86,9 +83,8 @@ class HeroHandler(Resource):
     def delete(self, hero_id):
         """Delete hero"""
         try:
-            hero = MainModule.get_firestore_db().collection(
-                self._collection_name).document(hero_id).delete()
-            if hero == None:
+            hero = Hero.delete(hero_id)
+            if not hero:
                 return {'message': 'Hero deleted'}, 200
             return {'message': 'Hero not found'}, 404
 
