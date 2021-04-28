@@ -46,14 +46,14 @@ class TopHeroesHandlerTestCase(unittest.TestCase):
         # Fazendo a primeira consulta a url e conferindo a resposta
         response = self.app.get(path='/top-heroes')
         first_hero_list = response.get_json()['heroes']
-        self.assertEqual(len(first_hero_list), 4)
+        self.assertEqual(len(first_hero_list), 5)
         self.assertEqual(response.status_code, 200)
 
         # Fazendo a segunda consulta a url e conferindo a resposta
         response = self.app.get(path='/top-heroes')
         self.assertEqual(response.status_code, 200)
         second_hero_list = response.get_json()['heroes']
-        self.assertEqual(len(second_hero_list), 4)
+        self.assertEqual(len(second_hero_list), 5)
 
         # Comparando as duas listas para ver se são diferentes
         # Pois essa url precisa sempre retornar herois diferentes

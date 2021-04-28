@@ -18,7 +18,7 @@ class TopHeroesHandler(Resource):
 
             shuffle(heroes_dict)
 
-            return {'heroes': heroes_dict[:4]}
+            return {'heroes': heroes_dict[:5]}
 
         except Exception as error:
             return {

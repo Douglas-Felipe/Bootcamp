@@ -71,9 +71,10 @@ class HeroHandler(Resource):
         """Update a hero"""
         try:
             hero = Hero.get_hero(hero_id)
-            if hero:
-                return hero.to_dict()
-            return {'message': 'Hero not found'}, 404
+            if not hero:
+                return {'message': 'Hero not found'}, 404
+            HeroModule.update(hero, request.json['hero'])
+            return hero.to_dict()
         except Exception as error:
             return {
               'message': 'Error on update hero',

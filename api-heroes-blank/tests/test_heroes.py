@@ -34,9 +34,9 @@ class HeroesHandlerTestCase(unittest.TestCase):
         }
 
         response = self.app.post(path='/heroes', json=hero_dict)
-
         # Conferindo se voltou 200
         self.assertEqual(response.status_code, 200)
+
 
         # Conferindo a resposta da requisição
         self.assertIsNotNone(response.get_json())
@@ -97,7 +97,7 @@ class HeroesHandlerTestCase(unittest.TestCase):
     def test_update_hero(self):
         """Test update hero"""
         # Criando o heroi
-        hero = self.create_hero('Hawkwoman', 'dc')
+        hero = self.create_hero('Hero', 'dc')
         # Enviando a requisição para obter o heroi
         params = {
             'hero': {
@@ -133,6 +133,84 @@ class HeroesHandlerTestCase(unittest.TestCase):
         # excluido mesmo
         self.assertIsNone(Hero.get_hero(hero.id))
 
+    def test_create_hero_without_name(self):
+        """Test create hero without name"""
+        params = {
+            'hero': {
+                'name': '',
+                'description': '',
+                'universe': 'dc',
+                'imageUrl': 'https://image.com.br/image.jpg'
+            }
+        }
+        response = self.app.post(path='/heroes', json=params)
+        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.get_json()['details'],
+                         'Bad request, name is required')
+
+    def test_create_hero_with_name_formatted(self):
+        """Test create hero with uppercase name and blank spaces"""
+        params = {
+            'hero': {
+                'name': ' SUPERMAN ',
+                'description': 'Hero description',
+                'universe': 'dc',
+                'imageUrl': 'https://image.com.br/image.jpg'
+            }
+        }
+        response = self.app.post(path='/heroes', json=params)
+        self.assertEqual(response.status_code, 200)
+
+        # Obtendo o heroi no banco de dados para conferir o nome
+        hero_updated = Hero.get_hero(response.get_json()['id'])
+        self.assertEqual(hero_updated.name, 'Superman')
+
+    def test_create_hero_with_invalid_universe(self):
+        """Test create hero with invalid universe"""
+        params = {
+            'hero': {
+                'name': ' SUPERMAN ',
+                'description': 'Hero description',
+                'universe': 'x-men',
+                'imageUrl': 'https://image.com.br/image.jpg'
+            }
+        }
+        response = self.app.post(path='/heroes', json=params)
+        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.get_json()['details'],
+                         'Bad request, invalid universe')
+
+    def test_create_hero_with_invalid_urlImage(self):
+        """Test create hero with invalid url image"""
+        params = {
+            'hero': {
+                'name': ' SUPERMAN ',
+                'description': 'Hero description',
+                'universe': 'marvel',
+                'imageUrl': 'image.com.br/image.jpg'
+            }
+        }
+        response = self.app.post(path='/heroes', json=params)
+        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.get_json()['details'],
+                         'Bad request, invalid image url')
+
+    def test_create_hero_with_description_formatted(self):
+        """Test create hero with uppercase name and blank spaces"""
+        params = {
+            'hero': {
+                'name': 'Superman',
+                'description': '  Hero DESCRIPTION  ',
+                'universe': 'dc',
+                'imageUrl': 'https://image.com.br/image.jpg'
+            }
+        }
+        response = self.app.post(path='/heroes', json=params)
+        self.assertEqual(response.status_code, 200)
+
+        # Obtendo o heroi no banco de dados para conferir o nome
+        hero_updated = Hero.get_hero(response.get_json()['id'])
+        self.assertEqual(hero_updated.description, 'Hero Description')
 
 if __name__ == '__main__':
     unittest.main()
