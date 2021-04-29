@@ -1,6 +1,7 @@
 from models.hero import Hero
 import re
 
+
 class HeroModule(object):
     """Hero module"""
 

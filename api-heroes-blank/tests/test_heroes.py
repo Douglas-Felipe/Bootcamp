@@ -57,6 +57,18 @@ class HeroesHandlerTestCase(unittest.TestCase):
         # Conferindo a quantidade de herois que voltou no json
         self.assertEqual(len(response.get_json()['heroes']), 16)
 
+        # Fazendo a segunda consulta enviando o cursor retornado
+        cursor = response.get_json()['cursor']
+
+        response = self.app.get(path='/heroes?cursor=' + cursor)
+
+        # Conferindo se voltou 200
+        self.assertEqual(response.status_code, 200)
+
+        # Conferindo a quantidade de herois que voltou no json
+        # Na primeira requisiçao voltou 16 herois entao precisa retornar mais 4
+        self.assertEqual(len(response.get_json()['heroes']), 4)
+
     @staticmethod
     def create_hero(hero_name, universe):
         hero = Hero()
@@ -211,6 +223,8 @@ class HeroesHandlerTestCase(unittest.TestCase):
         # Obtendo o heroi no banco de dados para conferir o nome
         hero_updated = Hero.get_hero(response.get_json()['id'])
         self.assertEqual(hero_updated.description, 'Hero Description')
+
+
 
 if __name__ == '__main__':
     unittest.main()
