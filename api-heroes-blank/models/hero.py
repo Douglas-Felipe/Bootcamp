@@ -59,7 +59,7 @@ class Hero(object):
     @classmethod
     def delete(cls, hero_id):
         """Delete a hero by id"""
-        hero = MainModule.get_firestore_db().collection(
+        MainModule.get_firestore_db().collection(
             cls._collection_name).document(hero_id).delete()
 
     @classmethod
@@ -67,3 +67,13 @@ class Hero(object):
         """Get top heroes"""
         return MainModule.get_firestore_db().collection(
             cls._collection_name).limit(20).stream()
+
+    @classmethod
+    def search_heroes(cls, name):
+        """Search hero"""
+        heroes = MainModule.get_firestore_db().collection(
+            cls._collection_name).where('name', '==', f'{name.title()}').limit(10).stream()
+        if name:
+            return heroes
+        return None
+
