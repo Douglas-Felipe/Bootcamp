@@ -18,8 +18,10 @@ class HeroesSearchHandler(Resource):
                 response['heroes'].append(hero.to_dict())
             #Verificando se tivemos herois no retorno
             if response['heroes']:
+                if response['heroes'][0]['name']:
+                    return {'message': 'Bad request, param name is required'}, 400
                 return response['heroes']
-            return {'message': 'Bad request, param name is required'}, 400
+            return {'message': 'Hero not found'}, 404
 
         except Exception as error:
             return {
