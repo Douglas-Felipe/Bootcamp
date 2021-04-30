@@ -83,7 +83,7 @@ class HeroesSearchHandlerTestCase(unittest.TestCase):
         # deve retornar o status 400(Bad request) e retornar um json com
         # a mensagem de erro
         response = self.app.get(path='/search?name=')
-
+        print("\n\n\n\naaaa", response.get_json(),"\n\n\n\n aaaaaa")
         # Conferindo o status da requisição
         self.assertEqual(response.status_code, 400)
 

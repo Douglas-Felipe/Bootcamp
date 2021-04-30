@@ -16,11 +16,13 @@ class HeroesSearchHandler(Resource):
             # Vamos percorer os herois e transformar em json
             for hero in heroes:
                 response['heroes'].append(hero.to_dict())
-            if heroes:
+            #Verificando se tivemos herois no retorno
+            if response['heroes']:
                 return response['heroes']
-            return {'message': 'Hero not found'}, 404
+            return {'message': 'Bad request, param name is required'}, 400
 
         except Exception as error:
             return {
-                       'message': 'Bad request, param name is required'
-                   }, 400
+                       'message': 'Error on get heroes',
+                       'details': str(error)
+                   }, 500

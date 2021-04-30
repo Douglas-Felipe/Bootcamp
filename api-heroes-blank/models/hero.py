@@ -73,7 +73,5 @@ class Hero(object):
         """Search hero"""
         heroes = MainModule.get_firestore_db().collection(
             cls._collection_name).where('name', '==', f'{name.title()}').limit(10).stream()
-        if name:
-            return heroes
-        return None
+        return heroes
 
